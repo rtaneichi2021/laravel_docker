@@ -6,7 +6,7 @@ services:
     build: ./docker-config/php
     container_name: app_php
     volumes:
-      - ./:/var/www/laravel
+      - ./:/var/www
     depends_on:
       - mysql
 
