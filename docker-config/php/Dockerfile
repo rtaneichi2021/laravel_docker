@@ -1,4 +1,4 @@
-FROM php:7.2-fpm
+FROM php:7.4.26-fpm
 COPY php.ini /usr/local/etc/php/
 
 # install composer
@@ -7,17 +7,14 @@ RUN cd /usr/bin && curl -s http://getcomposer.org/installer | php && ln -s /usr/
 # install packages
 RUN apt-get update \
   && apt-get install -y \
-    gcc \
-    make \
-    libpng-dev \
+    curl \
     git \
+    libpng-dev \
+    mariadb-client \
+    make \
+    openssl \
     unzip \
     vim \
-    libmcrypt-dev \
-    mariadb-client \
-    curl \
-    gnupg \
-    openssl \
     zlib1g-dev \ 
     && docker-php-ext-install pdo_mysql mysqli mbstring zip
 
